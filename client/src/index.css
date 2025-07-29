@@ -1,0 +1,112 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: hsl(248, 50%, 98%);
+  --foreground: hsl(334, 15%, 20%);
+  --muted: hsl(248, 8%, 96%);
+  --muted-foreground: hsl(334, 15%, 44%);
+  --popover: hsl(0, 0%, 100%);
+  --popover-foreground: hsl(334, 15%, 20%);
+  --card: hsl(0, 0%, 100%);
+  --card-foreground: hsl(334, 15%, 20%);
+  --border: hsl(334, 9%, 90%);
+  --input: hsl(334, 9%, 90%);
+  --primary: hsl(207, 90%, 54%);
+  --primary-foreground: hsl(211, 100%, 99%);
+  --secondary: hsl(151, 83%, 38%);
+  --secondary-foreground: hsl(60, 9%, 97%);
+  --accent: hsl(260, 70%, 60%);
+  --accent-foreground: hsl(24, 9%, 10%);
+  --destructive: hsl(0, 84%, 60%);
+  --destructive-foreground: hsl(60, 9%, 97%);
+  --ring: hsl(334, 15%, 20%);
+  --radius: 0.5rem;
+  
+  /* Custom colors for MathTunis */
+  --light-bg: hsl(248, 50%, 98%);
+  --dark-gray: hsl(215, 25%, 27%);
+  --medium-gray: hsl(215, 16%, 47%);
+}
+
+.dark {
+  --background: hsl(240, 10%, 3.9%);
+  --foreground: hsl(0, 0%, 98%);
+  --muted: hsl(240, 3.7%, 15.9%);
+  --muted-foreground: hsl(240, 5%, 64.9%);
+  --popover: hsl(240, 10%, 3.9%);
+  --popover-foreground: hsl(0, 0%, 98%);
+  --card: hsl(240, 10%, 3.9%);
+  --card-foreground: hsl(0, 0%, 98%);
+  --border: hsl(240, 3.7%, 15.9%);
+  --input: hsl(240, 3.7%, 15.9%);
+  --primary: hsl(207, 90%, 54%);
+  --primary-foreground: hsl(211, 100%, 99%);
+  --secondary: hsl(240, 3.7%, 15.9%);
+  --secondary-foreground: hsl(0, 0%, 98%);
+  --accent: hsl(240, 3.7%, 15.9%);
+  --accent-foreground: hsl(0, 0%, 98%);
+  --destructive: hsl(0, 62.8%, 30.6%);
+  --destructive-foreground: hsl(0, 0%, 98%);
+  --ring: hsl(240, 4.9%, 83.9%);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+    font-family: 'Inter', 'Noto Sans Arabic', 'Arial', sans-serif;
+  }
+  
+  /* Custom utility classes */
+  .text-dark-gray {
+    color: var(--dark-gray);
+  }
+  
+  .text-medium-gray {
+    color: var(--medium-gray);
+  }
+  
+  .bg-light-bg {
+    background-color: var(--light-bg);
+  }
+  
+  /* Math rendering improvements */
+  .math-step {
+    @apply rounded-lg p-3 mb-3;
+  }
+  
+  .math-step.blue {
+    @apply bg-blue-50 border-l-4 border-blue-500;
+  }
+  
+  .math-step.green {
+    @apply bg-green-50 border-l-4 border-green-500;
+  }
+  
+  .math-step.purple {
+    @apply bg-purple-50 border-l-4 border-purple-500;
+  }
+  
+  .math-step.amber {
+    @apply bg-amber-50 border-l-4 border-amber-500;
+  }
+  
+  /* Arabic text support */
+  .arabic-text {
+    direction: rtl;
+    text-align: right;
+    font-family: 'Noto Sans Arabic', Arial, sans-serif;
+  }
+  
+  /* Mobile responsive adjustments */
+  @media (max-width: 768px) {
+    .mobile-padding {
+      padding-bottom: 80px; /* Account for mobile bottom nav */
+    }
+  }
+}

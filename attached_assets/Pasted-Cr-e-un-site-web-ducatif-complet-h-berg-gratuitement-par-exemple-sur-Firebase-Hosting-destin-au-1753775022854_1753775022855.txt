@@ -1,0 +1,87 @@
+Crée un site web éducatif complet (hébergé gratuitement par exemple sur Firebase Hosting) destiné aux élèves tunisiens du collège au bac pour poser des questions de mathématiques.
+
+⚠️ Tu n’as pas le droit d’utiliser OpenAI, Gemini ou tout service payant.
+✅ Utilise uniquement des APIs GRATUITES et open-source (voir liste ci-dessous).
+
+---
+
+✅ 🧠 Objectif du site :
+
+- Un chatbot intelligent capable de :
+  - Résoudre tous types de problèmes mathématiques (limites, dérivées, probabilités…)
+  - Comprendre plusieurs formats d’entrée : **texte, image, PDF, audio, vidéo**
+  - Comprendre les questions en **arabe, dialecte tunisien, français**
+  - Expliquer les réponses **étape par étape** comme un professeur
+  - 🔎 En cas de doute, **scraper automatiquement des sites fiables** (type Wikipédia, Mathway, etc.) pour aider à générer une réponse correcte
+
+---
+
+✅ Page d’accueil (utilisateur) :
+
+- Interface de chat intelligente
+- Le visiteur peut poser **2 questions gratuitement**, puis le site demande **inscription ou connexion**
+- Les questions peuvent être :
+  - Texte (champ classique)
+  - 📸 Image (analyse avec **Tesseract.js**)
+  - 📄 PDF (lecture via **pdf.js**)
+  - 🎤 Audio (via **Whisper API** ou **Web Speech API**)
+  - 📹 Vidéo simple (extraire audio/frames pour analyse texte)
+- Le bot utilise :
+  - 🧮 **HuggingFace Transformers** : modèles comme `mathai/math-solver` ou `OpenMath/gpt-math`
+  - 🔍 En cas d’échec : **scraping web avec Puppeteer, Cheerio ou Playwright** pour consulter des sites de mathématiques
+
+---
+
+✅ Authentification :
+
+- Utilise **Firebase Auth** (gratuit)
+  - Création de compte
+  - Connexion
+  - Suivi du nombre de questions restantes
+
+---
+
+✅ Interface et design :
+
+- Responsive design (mobile/PC)
+- Utilise **Tailwind CSS** ou **Bootstrap 5**
+- Interface claire adaptée aux élèves (13–19 ans)
+- Zone centrale pour poser une question
+- Réponse affichée par étapes détaillées, avec mise en forme mathématique
+
+---
+
+✅ Tableau Admin (zone sécurisée) :
+
+- Accès admin avec authentification
+- Peut :
+  - Créer / modifier / supprimer : articles, pages, catégories
+  - Gérer les comptes élèves
+  - Voir les historiques de chat
+  - Générer des **extensions** du site (nouveaux modules ou outils)
+  - Superviser les réponses IA
+  - Ajouter manuellement des solutions types
+
+---
+
+✅ Résumé des technologies demandées :
+
+| Fonction                  | Technologie/API gratuite                 |
+|---------------------------|------------------------------------------|
+| Résolution math           | HuggingFace (`mathai/math-solver`)       |
+| Lecture d’image           | Tesseract.js                             |
+| Lecture PDF               | pdf.js                                   |
+| Reconnaissance vocale     | Web Speech API / Whisper HuggingFace     |
+| Scraping web              | Puppeteer / Playwright / Cheerio         |
+| Authentification          | Firebase Auth                            |
+| Hébergement               | Firebase Hosting                         |
+| UI / Design               | HTML/CSS + Tailwind CSS ou Bootstrap     |
+
+---
+
+✅ Contraintes supplémentaires :
+
+- ❌ Aucune API payante
+- ✅ Tout doit être **fonctionnel et testé** : accueil, chat, admin, scraping, authentification, limites par utilisateur
+- ✅ Les réponses doivent être **détaillées, organisées et pédagogiques**
+- ✅ Le bot doit **s’améliorer progressivement** via des ajouts admin (corrections, exemples, etc.)
